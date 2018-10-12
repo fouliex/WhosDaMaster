@@ -1,4 +1,4 @@
-package com.practice.coderbyte;
+package com.practice.leetcode;
 
 import java.util.Arrays;
 import java.util.HashMap;
