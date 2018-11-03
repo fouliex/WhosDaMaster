@@ -3,7 +3,7 @@ package com.practice.datastructure.stack;
 /**
  * Created by George Fouche on 10/16/18.
  */
-public class App {
+public class StackApp {
 
     public static void main(String[] args) {
         Stack theStack = new Stack(3);
