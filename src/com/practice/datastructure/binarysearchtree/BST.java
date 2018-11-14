@@ -98,7 +98,7 @@ public class BST {
             }
         }
 
-        //  if a node has a child
+        //  if a node has a child that is on the left
         else if (nodeToDelete.rightChild == null) {
             if (nodeToDelete == root) {
                 root = nodeToDelete.leftChild;
@@ -109,10 +109,52 @@ public class BST {
             }
         }
 
+        // if node has one child that is on the right
+        else if (nodeToDelete.leftChild == null) {
+            if (nodeToDelete == root) {
+                root = nodeToDelete.rightChild;
+            } else if (isLeftChild) {
+                parentNode.leftChild = nodeToDelete.rightChild;
+            } else {
+                parentNode.rightChild = nodeToDelete.rightChild;
+            }
+        }
+
         // if node 2 children
+        else{
+            Node successor = getSuccessor(nodeToDelete);
 
-
+            // connect parent of NodeToDelete to successor instead
+            if(nodeToDelete == root){
+                root = successor;
+            }else if(isLeftChild){
+                parentNode.leftChild = successor;
+            }else{
+                parentNode.rightChild = successor;
+            }
+            successor.leftChild = nodeToDelete.leftChild;
+        }
         return true;
+    }
+
+    private Node getSuccessor(Node nodeToDelete) {
+        Node successorParent = nodeToDelete;
+        Node successor = nodeToDelete;
+
+        Node current = nodeToDelete.rightChild; // go the right child
+
+        while(current != null){ // start going left down the tree until node has no left child
+            successorParent = successor;
+            successor = current;
+            current =current.leftChild;
+        }
+
+        // if successor not a right child
+        if(successor != nodeToDelete.rightChild){
+            successorParent.leftChild = successor.rightChild;
+            successor.rightChild = nodeToDelete.rightChild;
+        }
+        return successor;
     }
 
 
