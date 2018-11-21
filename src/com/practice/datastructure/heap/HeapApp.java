@@ -7,5 +7,17 @@ public class HeapApp {
     public static void main(String[] args) {
         Heap heap = new Heap(10);
         System.out.println(heap.insert(10));
+        System.out.println(heap.insert(12));
+        System.out.println(heap.insert(42));
+        System.out.println(heap.insert(35));
+        System.out.println(heap.insert(16));
+        System.out.println(heap.insert(88));
+        System.out.println(heap.insert(42));
+        System.out.println(heap.insert(7));
+
+        heap.displayHeap();
+
+
+
     }
 }
