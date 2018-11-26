@@ -1,6 +1,11 @@
 package com.practice.datastructure.hashtable;
 
 /**
+ * This HashTable uses double hashing strategy to deal with collisions.
+ * If 2 or 3 items are trying to get into the same slot we would move them
+ * in another open address somewhere.
+ *
+ * Other HashTable t to look into is Seperate Chaining
  * Created by George Fouche on 11/23/18.
  */
 public class HashTable {
