@@ -10,12 +10,11 @@ import java.util.Arrays;
 public class RotateArray {
 
 
-
     public static void main(String[] args) {
-        int [] nums = {1,2,3,4,5,6,7};
-        int [] nums2 = {-1,-100,3,99};
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
 
-        System.out.println(Arrays.toString(rotateExample1(nums, 3)));
+       // System.out.println(Arrays.toString(rotateExample1(nums, 3)));
+        System.out.println(Arrays.toString(rotateExample2(nums, 3)));
 
     }
 
@@ -23,37 +22,39 @@ public class RotateArray {
      * Brute Force
      * Time Complexity: O(n^2)
      * Space Complexity: O(1)
+     *
      * @param nums
      * @param k
      * @return
      */
-    private static int[] rotateExample1(int[] nums, int k){
-         int temp;
-         int previous;
+    private static int[] rotateExample1(int[] nums, int k) {
+        int temp;
+        int previous;
 
-         for(int i =0; i<k;i++){
-             previous = nums[nums.length-1];
-             for(int j =0; j< nums.length;j++){
-                 temp =nums[j];
-                 nums[j] = previous;
-                 previous =temp;
-             }
-         }
-         return nums;
-    }
-
-
-    private static int[] rotateExample2(int[]nums,int k){
-        int[] newArray = new int[nums.length];
-        for(int i = 0; i < nums.length;i++){
-            newArray[(i+k) % nums.length] = nums[i];
-        }
-
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = newArray[i];
+        for (int i = 0; i < k; i++) {
+            previous = nums[nums.length - 1];
+            for (int j = 0; j < nums.length; j++) {
+                temp = nums[j];
+                nums[j] = previous;
+                previous = temp;
+            }
         }
         return nums;
     }
 
 
+    private static int[] rotateExample2(int[] nums, int k) {
+        int[] tempArray = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            System.out.println((i + k) % nums.length);
+            tempArray[(i + k) % nums.length] = nums[i];
+        }
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = tempArray[i];
+        }
+
+        return nums;
+    }
 }
+
+
