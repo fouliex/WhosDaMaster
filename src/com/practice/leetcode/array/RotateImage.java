@@ -8,23 +8,119 @@ package com.practice.leetcode.array;
  */
 public class RotateImage {
     public static void main(String[] args) {
-        int[][] matrix = {
+
+        int[][] matrix2x2 = {
+                {0, 1},
+                {2, 3},
+        };
+
+        int[][] matrix3x3 = {
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9},
         };
 
-        rotate(matrix);
-        printMatrix(matrix);
+
+        int[][] matrix4x4 = {
+                {1, 2, 3, 4},
+                {5, 6, 7, 8},
+                {9, 10, 11, 12},
+                {13, 14, 15, 16},
+        };
+
+
+        rotateWithMatrixSize2(matrix2x2);
+        printMatrix(matrix2x2);
+
+        rotateWithMatrixSize4(matrix3x3);
+        printMatrix(matrix3x3);
     }
 
-    private static int[][] rotate(int[][] matrix) {
+    @SuppressWarnings("Duplicates")
+    public static int[][] rotateWithMatrixSize2(int[][] matrix) {
+        int last = matrix.length - 1;
+        int temp;
 
+        for (int i = 0; i < last; i++) {
+            // Swap matrix[i][i] and  matrix[i][last])
+            temp = matrix[i][i];
+            matrix[i][i] = matrix[i][last];
+            matrix[i][last] = temp;
+
+            // Swap matrix[i][i] and matrix[last][last])
+            temp = matrix[i][i];
+            matrix[i][i] = matrix[last][last];
+            matrix[last][last] = temp;
+
+            // swap(matrix[i][i], matrix[last][i]);
+            temp = matrix[i][i];
+            matrix[i][i] = matrix[last][i];
+            matrix[last][i] = temp;
+        }
+        return matrix;
+    }
+
+    @SuppressWarnings("Duplicates")
+    public static int[][] rotateWithMatrixSize3(int[][] matrix) {
+        int last = matrix.length - 1;
+        int temp;
+        int level = 0;
+
+
+        for (int i = 0; i < last; i++) {
+            // Swap matrix[level][i] and  matrix[i][last])
+            temp = matrix[level][i];
+            matrix[level][i] = matrix[i][last];
+            matrix[i][last] = temp;
+
+            // Swap matrix[level][i] and matrix[last][last- i])
+            temp = matrix[level][i];
+            matrix[level][i] = matrix[last][last - i];
+            matrix[last][last - i] = temp;
+
+            // swap(matrix[level][i], matrix[last -i][level]);
+            temp = matrix[level][i];
+            matrix[level][i] = matrix[last - i][level];
+            matrix[last - i][level] = temp;
+        }
         return matrix;
     }
 
 
-   public static void printMatrix(int[][] matrix){
+    @SuppressWarnings("Duplicates")
+    public static int[][] rotateWithMatrixSize4(int[][] matrix) {
+        int last = matrix.length - 1;
+        int temp;
+        int level = 0;
+        int totNumOfLevels = matrix.length / 2;
+
+        while (level < totNumOfLevels) {
+
+            for (int i = level; i < last; i++) {
+                // Swap matrix[level][i] and  matrix[i][last])
+                temp = matrix[level][i];
+                matrix[level][i] = matrix[i][last];
+                matrix[i][last] = temp;
+
+                // Swap matrix[level][i] and matrix[last][last - i + level])
+                temp = matrix[level][i];
+                matrix[level][i] = matrix[last][last - i + level];
+                matrix[last][last - i + level] = temp;
+
+                // swap(matrix[level][i], matrix[last -i + level ][level]);
+                temp = matrix[level][i];
+                matrix[level][i] = matrix[last - i + level][level];
+                matrix[last - i + level][level] = temp;
+            }
+            level++;
+            last--;
+
+        }
+        return matrix;
+    }
+
+
+    public static void printMatrix(int[][] matrix) {
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
