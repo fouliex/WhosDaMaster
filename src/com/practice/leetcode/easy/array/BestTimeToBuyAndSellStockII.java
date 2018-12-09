@@ -1,4 +1,4 @@
-package com.practice.leetcode.array;
+package com.practice.leetcode.easy.array;
 
 /**
  *Design an algorithm to find the maximum profit.
