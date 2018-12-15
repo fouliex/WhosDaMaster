@@ -1,4 +1,4 @@
-package com.practice.leetcode.array;
+package com.practice.leetcode.easy.array;
 
 /**
  * You are given an n x n 2D matrix representing an image.
