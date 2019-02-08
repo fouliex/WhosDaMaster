@@ -46,7 +46,6 @@ public class RotateArray {
     private static int[] rotateExample2(int[] nums, int k) {
         int[] tempArray = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
-            System.out.println((i + k) % nums.length);
             tempArray[(i + k) % nums.length] = nums[i];
         }
         for (int i = 0; i < nums.length; i++) {
