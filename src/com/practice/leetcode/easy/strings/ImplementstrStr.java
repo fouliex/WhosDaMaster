@@ -11,6 +11,8 @@ public class ImplementstrStr {
         String haystack = "hello";
         String needle = "ll";
 
+        String george = "ds";
+
         System.out.println(strStr(haystack,needle));
     }
 
