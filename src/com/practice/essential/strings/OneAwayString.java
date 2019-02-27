@@ -1,4 +1,4 @@
-package com.practice.leetcode.easy.strings.essential;
+package com.practice.essential.strings;
 
 /**
  * One Away String
