@@ -1,4 +1,4 @@
-package com.practice.leetcode.easy.array.essential;
+package com.practice.essential.array;
 
 import java.util.HashMap;
 import java.util.Map;

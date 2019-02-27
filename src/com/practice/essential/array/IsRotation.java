@@ -1,4 +1,4 @@
-package com.practice.leetcode.easy.array.essential;
+package com.practice.essential.array;
 
 /**
  * Is One Array a Rotation of Another
