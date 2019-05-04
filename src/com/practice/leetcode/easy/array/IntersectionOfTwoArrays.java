@@ -20,7 +20,7 @@ public class IntersectionOfTwoArrays {
 
         System.out.println(Arrays.toString(intersection(nums1, nums2)));
         System.out.println();
-        intersectionExample2(nums1,nums2);
+        intersection(nums1,nums2);
 
 
     }

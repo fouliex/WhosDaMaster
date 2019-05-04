@@ -40,13 +40,6 @@ public class MostFrequentItem {
             }
 
         }
-
-        for (int num : givenArray){
-            if(map.get(num) > maxCount){
-                maxCount= map.get(num);
-                maxItem = num;
-            }
-        }
         return maxItem;
     }
 }
